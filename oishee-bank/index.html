@@ -14,8 +14,100 @@
         <h3>login</h3>
         <input type="text" class="form-control"placeholder="your name"><br>
         <input type="email" name="" id="" class="form-control"placeholder="name@gmail.com"><br>
-        <button class="btn btn-success">ENTER</button>
+        <button id="login-page" class="btn btn-success">ENTER</button>
      </div>
    </div>
+   <div id="main-area" >
+     <div class="row">
+
+     <div class="col-md-4">
+       <div class="deposit same-class">
+       <h5>Deposit</h5>
+       <h4><span id="currentDipo">00</span></h4>
+       </div>
+     </div>
+
+     <div class="col-md-4">
+        <div class="withdraw same-class">
+         <h5>Withdraw</h5>
+         <h4>$ <span id="amountField">00</span></h4>
+        </div>
+     </div>
+
+     <div class="col-md-4">
+       <div class="balance same-class">
+         <h5>Balance</h5>
+         <h4>$ <span id="currentBalance">1200</span></h4> 
+       </div>
+     </div>
+     </div>
+   <div class="row">
+
+  <div class="col-md-6">
+  <div class="submit">
+     <h4>Deposite</h4><br>
+     <input type="text" class="form-control" id="amountDipo" placeholder="$ amount your Deposite"><br>
+     <button id="addDepo" class="btn btn-success">Deposite</button>
+  </div>
+  </div>
+
+  <div class="col-md-6">
+   <div class="submit">
+      <h4>Withdrow</h4><br>
+      <input type="text" id="widrawfield" class="form-control"placeholder="$ amount your Withdraw Amount"><br>
+      <button id="widrawbtn" class="btn btn-success">Withdraw</button>
+   </div>
+   </div>
+   </div>
+   </div>
+   <script>
+      // login button evevt handler
+      document.getElementById("login-page").addEventListener('click',function(){
+            const loginArea=document.getElementById("login");
+            loginArea.style.display="none";
+            const mainArea=document.getElementById("main-area");
+            mainArea.style.display="block";
+      })
+
+      //deposite button event handler
+      const depobtn=document.getElementById("addDepo");
+      depobtn.addEventListener('click',function(){
+       const dipoAmount=document.getElementById("amountDipo").value;
+       const dipoNumber=parseFloat(dipoAmount);
+       const currentDipo=document.getElementById("currentDipo").innerText;
+       const currentAmount=parseFloat(currentDipo);
+       const totalNumber=dipoNumber + currentAmount;
+       
+      // const balance=document.getElementById("currentBalance").innerText;
+      // const totalBalance=parseFloat(balance);
+      // const finalAmount=totalBalance+totalNumber;
+      // document.getElementById("currentBalance").innerText=finalAmount;
+        Balance("currentBalance",totalNumber);
+       document.getElementById("currentDipo").innerText=totalNumber;
+       document.getElementById("amountDipo").value="";
+      })
+   function Balance(id,totalNumber){
+      const balance=document.getElementById(id).innerText;
+       const totalBalance=parseFloat(balance);
+       const finalAmount=totalBalance+totalNumber;
+       document.getElementById("currentBalance").innerText=finalAmount;
+   }
+   document.getElementById("widrawbtn").addEventListener('click',function(){
+     const widrawFild=document.getElementById("widrawfield").value;
+     const widrawAmount=parseFloat(widrawFild);
+     const amount=document.getElementById("amountField").innerText;
+     const totalAmount=parseFloat(amount);
+     const finalWidrow=totalAmount+widrawAmount;
+     document.getElementById("amountField").innerText=finalWidrow;
+     document.getElementById("widrawfield").value="";
+
+
+     const balance=document.getElementById("currentBalance").innerText;
+       const totalBalance=parseFloat(balance);
+      const finalAmount=totalBalance-finalWidrow;
+       document.getElementById("currentBalance").innerText=finalAmount;
+
+   })
+   </script>
 </body>
 </html>

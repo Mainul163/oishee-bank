@@ -7,3 +7,27 @@ body{
     border-radius: 10px;
     box-shadow: 10px 10px 20px gray;
 }
+#main-area{
+    display: none;
+}
+.deposit{
+    background-color: slateblue;
+}
+.withdraw{
+    background-color:lightcoral;
+}
+.balance{
+    background-color: orange;
+}
+.same-class{
+    color: white;
+    margin: 0 20px;
+    padding: 20px;
+    border-radius:10px;
+}
+.submit{
+    border-radius:10px;
+    box-shadow:10px 10px 20px gray;
+    margin-top: 50px;
+    padding: 40px;
+}
