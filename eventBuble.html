@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="first">
+        <h1>my name is mainul islam</h1>
+        <ul id="second">
+            <li id="thrid">mango</li>
+            <li>orange</li>
+            <li>banana</li>
+            <li>luichi</li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('thrid').addEventListener('click', function(eve){
+            console.log('i am third');
+            
+        })
+
+        document.getElementById('second').addEventListener('click', function(eve){
+            console.log('i am second');
+         eve.stopPropagation();
+        })
+
+        document.getElementById('first').addEventListener('click', function(eve){
+            console.log('i am first');
+        })
+    </script>
+</body>
+</html>

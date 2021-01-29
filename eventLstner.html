@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>this is my event listener</h1>
+    <button>button-1</button>
+    <button id="special">button-2</button>
+    <button id="last">button-3</button>
+
+    <script>
+
+        function handle(){
+            document.body.style.backgroundColor='red';
+        }
+       var button= document.getElementById('special');
+       button.addEventListener('click',handle);
+    //    button.onclick=handle;
+       
+    //    button.onclick=function(){
+    //        document.body.style.backgroundColor='red';
+    //    }
+
+    document.getElementById('last').addEventListener('click',function(){
+        document.body.style.backgroundColor='white';
+        event.stopImmediatePropagation
+    })
+    </script>
+</body>
+</html>
